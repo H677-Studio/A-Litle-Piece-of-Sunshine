@@ -34,7 +34,7 @@
             transition: opacity 1s ease, visibility 1s ease;
         }
 
-        /* ANGGO: BAGIAN GAYA BARU UNTUK KEPALA HAECHAN AGAR GOYANG */
+        /* BAGIAN GAYA BARU UNTUK KEPALA HAECHAN AGAR GOYANG */
         .pembuka-icon {
             max-width: 200px;
             margin-bottom: 25px;
@@ -44,7 +44,7 @@
             animation: wobble 2.5s ease-in-out infinite; /* Efek goyang terus-menerus */
         }
 
-        /* ANGGO: ANIMASI GOYANG-GOYANG (WOBBLE) */
+        /* ANIMASI GOYANG-GOYANG (WOBBLE) */
         @keyframes wobble {
             0% { transform: rotate(0deg); }
             25% { transform: rotate(-6deg); } /* Goyang kiri */
@@ -106,6 +106,16 @@
             border-radius: 12px;
         }
 
+        /* BARU: GAYA UNTUK TEKS CERITA AGAR RATA KANAN-KIRI (JUSTIFY) */
+        .cerita-panjang {
+            text-align: justify;       /* Membuat teks rata kanan-kiri */
+            line-height: 1.7;          /* Jarak antar baris biar tidak rapat dan nyaman dibaca */
+            letter-spacing: 0.5px;     /* Jarak estetik antar huruf */
+            font-size: 15px;           /* Ukuran huruf cerita yang pas */
+            color: #4a4a4a;
+            white-space: pre-line;     /* Biar kalau kamu tekan 'Enter' di keyboard, teksnya otomatis ganti baris baru */
+        }
+
         /* Efek Menghilangkan Cover */
         .fade-out {
             opacity: 0;
@@ -131,9 +141,9 @@
             <video id="memory-video" src="video.mp4" loop playsinline></video>
         </div>
 
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ac eros consequat, fermentum massa non, luctus libero.</p>
-        <p>Praesent ante arcu, venenatis sodales urna quis, tempus interdum felis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
-        <p>Sed vitae interdum nibh. Curabitur sagittis velit eget urna iaculis, non imperdiet nulla lobortis. Morbi risus neque, viverra et mauris vitae, dapibus convallis risus. Donec vel ex malesuada magna porta ultrices sit amet eu arcu. Cras cursus fermentum lorem. Donec tempor leo sit amet metus semper, ac semper ante viverra. Ut enim massa, ornare a vulputate vitae, venenatis convallis libero. Quisque nec orci sed enim mattis faucibus.</p>
+        <p class="cerita-panjang">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ac eros consequat, fermentum massa non, luctus libero. Praesent ante arcu, venenatis sodales urna quis, tempus interdum felis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. 
+
+Sed vitae interdum nibh. Curabitur sagittis velit eget urna iaculis, non imperdiet nulla lobortis. Morbi risus neque, viverra et mauris vitae, dapibus convallis risus. Donec vel ex malesuada magna porta ultrices sit amet eu arcu. Cras cursus fermentum lorem. Donec tempor leo sit amet metus semper, ac semper ante viverra. Ut enim massa, ornare a vulputate vitae, venenatis convallis libero. Quisque nec orci sed enim mattis faucibus.</p>
     </div>
 
     <script>
