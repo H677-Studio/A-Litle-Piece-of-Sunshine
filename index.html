@@ -107,7 +107,7 @@
         <p class="subtitle">Happy Birthday my Sunshine</p>
 
         <div class="video-container">
-            <video id="memory-video" src="video.mp4" autoplay muted loop playsinline></video>
+            <video id="memory-video" src="video.mp4" loop playsinline></video>
         </div>
 
         <p>Make my life colorfull</p>
@@ -115,20 +115,19 @@
 
     <script>
         function startMemories() {
-            const music = document.getElementById('bg-music');
-            const video = document.getElementById('memory-video');
-            const cover = document.getElementById('cover-overlay');
+    const video = document.getElementById('memory-video');
+    const cover = document.getElementById('cover-overlay');
 
-            // Hilangkan halaman pembuka
-            cover.classList.add('fade-out');
+    // 1. Hilangkan halaman pembuka
+    cover.classList.add('fade-out');
 
-            // Putar musik background (bersuara)
-            music.play().catch(error => console.log("Gagal memutar audio:", error));
-            
-            // Putar ulang video dari awal agar sinkron saat web dibuka
-            video.currentTime = 0;
-            video.play().catch(error => console.log("Gagal memutar video:", error));
-        }
+    // 2. Aktifkan suara video (karena musik background dihapus)
+    video.muted = false;
+
+    // 3. Paksa video memuat ulang dan berputar otomatis dengan suara
+    video.load();
+    video.play().catch(error => console.log("Gagal memutar video:", error));
+}
     </script>
 
 </body>
