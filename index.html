@@ -33,6 +33,26 @@
             z-index: 9999;
             transition: opacity 1s ease, visibility 1s ease;
         }
+
+        /* ANGGO: BAGIAN GAYA BARU UNTUK KEPALA HAECHAN AGAR GOYANG */
+        .pembuka-icon {
+            max-width: 200px;
+            margin-bottom: 25px;
+            height: auto;
+            display: block;
+            transform-origin: bottom center; /* Poros goyangan di leher bawah */
+            animation: wobble 2.5s ease-in-out infinite; /* Efek goyang terus-menerus */
+        }
+
+        /* ANGGO: ANIMASI GOYANG-GOYANG (WOBBLE) */
+        @keyframes wobble {
+            0% { transform: rotate(0deg); }
+            25% { transform: rotate(-6deg); } /* Goyang kiri */
+            50% { transform: rotate(0deg); }
+            75% { transform: rotate(6deg); }  /* Goyang kanan */
+            100% { transform: rotate(0deg); }
+        }
+
         /* Tombol Masuk yang Clean */
         .btn-enter {
             padding: 15px 40px;
@@ -99,9 +119,9 @@
     <audio id="bg-music" src="musik.mp3" loop></audio>
 
     <div id="cover-overlay">
-    <img src="cover-image.png" style="max-width: 200px; margin-bottom: 25px; height: auto; display: block;">
-    <button class="btn-enter" onclick="startMemories()">Tap to see Haechan</button>
-</div>
+        <img src="cover-image.png" class="pembuka-icon" alt="Haechan">
+        <button class="btn-enter" onclick="startMemories()">Tap to see Haechan</button>
+    </div>
 
     <div class="main-content">
         <h1>0606</h1>
@@ -111,26 +131,26 @@
             <video id="memory-video" src="video.mp4" loop playsinline></video>
         </div>
 
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ac eros consequat, fermentum massa non, luctus libero.<p>
-        </p>Praesent ante arcu, venenatis sodales urna quis, tempus interdum felis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.<p>
-        </p> Sed vitae interdum nibh. Curabitur sagittis velit eget urna iaculis, non imperdiet nulla lobortis. Morbi risus neque, viverra et mauris vitae, dapibus convallis risus. Donec vel ex malesuada magna porta ultrices sit amet eu arcu. Cras cursus fermentum lorem. Donec tempor leo sit amet metus semper, ac semper ante viverra. Ut enim massa, ornare a vulputate vitae, venenatis convallis libero. Quisque nec orci sed enim mattis faucibus.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ac eros consequat, fermentum massa non, luctus libero.</p>
+        <p>Praesent ante arcu, venenatis sodales urna quis, tempus interdum felis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+        <p>Sed vitae interdum nibh. Curabitur sagittis velit eget urna iaculis, non imperdiet nulla lobortis. Morbi risus neque, viverra et mauris vitae, dapibus convallis risus. Donec vel ex malesuada magna porta ultrices sit amet eu arcu. Cras cursus fermentum lorem. Donec tempor leo sit amet metus semper, ac semper ante viverra. Ut enim massa, ornare a vulputate vitae, venenatis convallis libero. Quisque nec orci sed enim mattis faucibus.</p>
     </div>
 
     <script>
         function startMemories() {
-    const video = document.getElementById('memory-video');
-    const cover = document.getElementById('cover-overlay');
+            const video = document.getElementById('memory-video');
+            const cover = document.getElementById('cover-overlay');
 
-    // 1. Hilangkan halaman pembuka
-    cover.classList.add('fade-out');
+            // 1. Hilangkan halaman pembuka
+            cover.classList.add('fade-out');
 
-    // 2. Aktifkan suara video (karena musik background dihapus)
-    video.muted = false;
+            // 2. Aktifkan suara video
+            video.muted = false;
 
-    // 3. Paksa video memuat ulang dan berputar otomatis dengan suara
-    video.load();
-    video.play().catch(error => console.log("Gagal memutar video:", error));
-}
+            // 3. Paksa video memuat ulang dan berputar otomatis dengan suara
+            video.load();
+            video.play().catch(error => console.log("Gagal memutar video:", error));
+        }
     </script>
 
 </body>
