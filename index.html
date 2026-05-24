@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Memories</title>
+    <title>Litle Sunshine</title>
     <style>
         /* Gaya Dasar Web */
         * {
@@ -38,16 +38,16 @@
             padding: 15px 40px;
             font-size: 16px;
             letter-spacing: 2px;
-            color: #5e503f;
+            color: #482509;
             background: transparent;
-            border: 1px solid #5e503f;
+            border: 1px solid #482509;
             border-radius: 30px;
             cursor: pointer;
             transition: all 0.3s ease;
         }
         .btn-enter:hover {
-            background-color: #5e503f;
-            color: #faf8f6;
+            background-color: #482509;
+            color: #ffdf37;
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         }
 
@@ -62,7 +62,7 @@
             font-weight: 300;
             letter-spacing: 3px;
             margin-bottom: 20px;
-            color: #5e503f;
+            color: #482509;
         }
         p.subtitle {
             font-style: italic;
@@ -75,13 +75,15 @@
             width: 100%;
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba-inside-black(0,0,0,0.05);
-            background-color: #000;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            background-color: #faf8f6;
             margin-bottom: 40px;
         }
         video {
             width: 100%;
+            height: auto;
             display: block;
+            border-radius: 12px;
         }
 
         /* Efek Menghilangkan Cover */
@@ -94,41 +96,37 @@
 </head>
 <body>
 
-    <!-- 1. AUDIO TERSEMBUNYI -->
-    <!-- Lagu akan berputar di background setelah tombol diklik -->
     <audio id="bg-music" src="musik.mp3" loop></audio>
 
-    <!-- 2. HALAMAN PEMBUKA (COVER) -->
     <div id="cover-overlay">
-        <button class="btn-enter" onclick="startMemories()">OPEN OUR MEMORIES</button>
+        <button class="btn-enter" onclick="startMemories()">Tap to see Haechan</button>
     </div>
 
-    <!-- 3. KONTEN UTAMA WEB -->
     <div class="main-content">
-        <h1>Happy Memories</h1>
-        <p class="subtitle">Setiap detik yang berharga, dirangkum di sini.</p>
+        <h1>0606</h1>
+        <p class="subtitle">Happy Birthday my Sunshine</p>
 
-        <!-- Tempat Video Kamu -->
         <div class="video-container">
-            <video id="memory-video" src="video.mp4" controls></video>
+            <video id="memory-video" src="video.mp4" autoplay muted loop playsinline></video>
         </div>
 
-        <p>Teks tambahan atau pesan manis kamu bisa ditulis di sini...</p>
+        <p>Make my life colorfull</p>
     </div>
 
-    <!-- 4. SCRIPT LOGIKANYA -->
     <script>
         function startMemories() {
-            // A. Ambil elemen audio dan video
             const music = document.getElementById('bg-music');
             const video = document.getElementById('memory-video');
             const cover = document.getElementById('cover-overlay');
 
-            // B. Hilangkan halaman pembuka dengan efek memudar
+            // Hilangkan halaman pembuka
             cover.classList.add('fade-out');
 
-            // C. Putar musik dan video secara bersamaan (Suara otomatis aktif karena dipicu klik!)
+            // Putar musik background (bersuara)
             music.play().catch(error => console.log("Gagal memutar audio:", error));
+            
+            // Putar ulang video dari awal agar sinkron saat web dibuka
+            video.currentTime = 0;
             video.play().catch(error => console.log("Gagal memutar video:", error));
         }
     </script>
