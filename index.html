@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Memories</title>
+    <style>
+        /* Gaya Dasar Web */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #faf8f6; /* Warna cream sangat lembut */
+            color: #4a4a4a;
+            overflow-x: hidden;
+        }
+
+        /* 1. HALAMAN PEMBUKA (COVER) */
+        #cover-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: #faf8f6;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 1s ease, visibility 1s ease;
+        }
+        /* Tombol Masuk yang Clean */
+        .btn-enter {
+            padding: 15px 40px;
+            font-size: 16px;
+            letter-spacing: 2px;
+            color: #5e503f;
+            background: transparent;
+            border: 1px solid #5e503f;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .btn-enter:hover {
+            background-color: #5e503f;
+            color: #faf8f6;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        /* 2. KONTEN UTAMA (MEMORIES) */
+        .main-content {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 80px 20px;
+            text-align: center;
+        }
+        h1 {
+            font-weight: 300;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+            color: #5e503f;
+        }
+        p.subtitle {
+            font-style: italic;
+            color: #8e8d8a;
+            margin-bottom: 50px;
+        }
+
+        /* Tempat Video */
+        .video-container {
+            width: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba-inside-black(0,0,0,0.05);
+            background-color: #000;
+            margin-bottom: 40px;
+        }
+        video {
+            width: 100%;
+            display: block;
+        }
+
+        /* Efek Menghilangkan Cover */
+        .fade-out {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. AUDIO TERSEMBUNYI -->
+    <!-- Lagu akan berputar di background setelah tombol diklik -->
+    <audio id="bg-music" src="musik.mp3" loop></audio>
+
+    <!-- 2. HALAMAN PEMBUKA (COVER) -->
+    <div id="cover-overlay">
+        <button class="btn-enter" onclick="startMemories()">OPEN OUR MEMORIES</button>
+    </div>
+
+    <!-- 3. KONTEN UTAMA WEB -->
+    <div class="main-content">
+        <h1>Happy Memories</h1>
+        <p class="subtitle">Setiap detik yang berharga, dirangkum di sini.</p>
+
+        <!-- Tempat Video Kamu -->
+        <div class="video-container">
+            <video id="memory-video" src="video.mp4" controls></video>
+        </div>
+
+        <p>Teks tambahan atau pesan manis kamu bisa ditulis di sini...</p>
+    </div>
+
+    <!-- 4. SCRIPT LOGIKANYA -->
+    <script>
+        function startMemories() {
+            // A. Ambil elemen audio dan video
+            const music = document.getElementById('bg-music');
+            const video = document.getElementById('memory-video');
+            const cover = document.getElementById('cover-overlay');
+
+            // B. Hilangkan halaman pembuka dengan efek memudar
+            cover.classList.add('fade-out');
+
+            // C. Putar musik dan video secara bersamaan (Suara otomatis aktif karena dipicu klik!)
+            music.play().catch(error => console.log("Gagal memutar audio:", error));
+            video.play().catch(error => console.log("Gagal memutar video:", error));
+        }
+    </script>
+
+</body>
+</html>
