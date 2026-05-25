@@ -116,6 +116,40 @@
             white-space: pre-line;     /* Biar kalau kamu tekan 'Enter' di keyboard, teksnya otomatis ganti baris baru */
         }
 
+        /* GAYA KONTEN GALERI 3 FOTO DI PALING BAWAH */
+        .style-gallery {
+            display: flex;
+            justify-content: space-between; /* Menyebarkan foto secara merata kiri, tengah, kanan */
+            align-items: flex-start;
+            gap: 15px; /* Jarak celah antar foto */
+            width: 100%;
+            margin-top: 20px;
+        }
+        .style-item {
+            width: 32%; /* Mengatur lebar proporsional 3 kolom pas di desktop/tablet */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .style-image {
+            max-width: 100%; /* Menyesuaikan frame */
+            height: auto;
+            display: block;
+            margin-bottom: 12px; /* Jarak foto ke teks deskripsi bawahnya */
+        }
+        /* GAYA TEKS UNTUK 2-3 KATA DI BAWAH FOTO */
+        .style-caption {
+            font-size: 13px;
+            color: #482509;
+            font-weight: 500;
+            letter-spacing: 1px;
+            line-height: 1.4;
+            text-transform: uppercase; /* Membuat teks otomatis capslock estetik ala majalah */
+            word-wrap: break-word;
+            max-width: 100%;
+        }
+        
         /* Efek Menghilangkan Cover */
         .fade-out {
             opacity: 0;
