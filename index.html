@@ -36,13 +36,24 @@
 
         /* BAGIAN GAYA BARU UNTUK KEPALA HAECHAN AGAR GOYANG */
         .pembuka-icon {
-            max-width: 200px;
-            margin-bottom: 25px;
-            height: auto;
-            display: block;
-            transform-origin: bottom center; /* Poros goyangan di leher bawah */
-            animation: wobble 2s ease-in-out infinite; /* Efek goyang terus-menerus */
-        }
+    max-width: 200px;
+    margin-bottom: 25px;
+    height: auto;
+    display: block;
+    transform-origin: bottom center; 
+
+    /* KUNCI BARU: Gabungkan animasi muncul halus (fade-in) dan goyang (wobble) */
+    animation: fadeIn 0.8s ease-out forwards, wobble 2.5s ease-in-out infinite 0.8s;
+    
+    opacity: 0; /* Awalnya disembunyikan dulu biar ga kelihatan pas loading setengah */
+    will-change: transform, opacity;
+}
+
+/* ANIMASI TAMBAHAN BIAR MUNCULNYA HALUS */
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
 
         /* ANIMASI GOYANG-GOYANG (WOBBLE) */
         @keyframes wobble {
