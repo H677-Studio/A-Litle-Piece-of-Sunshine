@@ -35,15 +35,17 @@
         }
 
         /* BAGIAN GAYA BARU UNTUK KEPALA HAECHAN AGAR GOYANG */
-        .pembuka-icon {
+       .pembuka-icon {
     max-width: 200px;
     margin-bottom: 25px;
     height: auto;
     display: block;
     transform-origin: bottom center; 
+    animation: wobble 2.5s ease-in-out infinite;
     
-    opacity: 0; /* Awalnya disembunyikan dulu biar ga kelihatan pas loading setengah */
-    will-change: transform, opacity;
+    /* TAMBAHKAN BARIS INI */
+    will-change: transform; 
+    image-rendering: -webkit-optimize-contrast;
 }
 
 /* ANIMASI TAMBAHAN BIAR MUNCULNYA HALUS */
