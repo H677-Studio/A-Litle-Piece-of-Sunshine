@@ -35,20 +35,20 @@
         }
 
         /* BAGIAN GAYA BARU UNTUK KEPALA HAECHAN AGAR GOYANG */
-       .pembuka-icon {
-    max-width: 200px;
-    margin-bottom: 25px;
-    height: auto;
-    display: block;
-    transform-origin: bottom center; 
-    animation: wobble 2.5s ease-in-out infinite;
-}
+        .pembuka-icon {
+            max-width: 200px;
+            margin-bottom: 25px;
+            height: auto;
+            display: block;
+            transform-origin: bottom center; 
+            animation: wobble 2.5s ease-in-out infinite;
+        }
 
-/* ANIMASI TAMBAHAN BIAR MUNCULNYA HALUS */
-@keyframes fadeIn {
-    from { opacity: 0; transform: scale(0.9); }
-    to { opacity: 1; transform: scale(1); }
-}
+        /* ANIMASI TAMBAHAN BIAR MUNCULNYA HALUS */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
 
         /* ANIMASI GOYANG-GOYANG (WOBBLE) */
         @keyframes wobble {
@@ -129,7 +129,7 @@
             align-items: flex-start;
             gap: 15px; /* Jarak celah antar foto */
             width: 100%;
-            margin-top: 20px;
+            margin-top: 50px;
         }
         .style-item {
             width: 32%; /* Mengatur lebar proporsional 3 kolom pas di desktop/tablet */
@@ -138,18 +138,33 @@
             align-items: center;
             text-align: center;
         }
+
+        /* BARU: Bingkai pelindung foto agar saat membesar/zoom tidak meluber keluar */
+        .img-wrapper {
+            width: 100%;
+            overflow: hidden;
+            border-radius: 8px; /* Memberi sedikit sudut tumpul estetik pada foto (opsional) */
+            margin-bottom: 15px; /* Jarak foto ke teks deskripsi bawahnya */
+        }
+
         .style-image {
-            max-width: 100%; /* Menyesuaikan frame */
+            width: 100%;
             height: auto;
             display: block;
-            margin-bottom: 10px; /* Jarak foto ke teks deskripsi bawahnya */
+            transition: transform 0.4s ease; /* Membuat efek pergerakan zoom menjadi halus */
         }
+
+        /* BARU: Efek saat kursor berada di atas salah satu item galeri */
+        .style-item:hover .style-image {
+            transform: scale(1.12); /* Foto membesar sebanyak 112% ke dalam bingkai */
+        }
+
         /* GAYA TEKS UNTUK 2-3 KATA DI BAWAH FOTO */
         .style-caption {
             font-size: 13px;
             color: #cf0058;
             font-weight: 500;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
             line-height: 1.4;
             text-transform: uppercase; /* Membuat teks otomatis capslock estetik ala majalah */
         }
@@ -173,7 +188,7 @@
 
     <div class="main-content">
         <h1>HAECHAN</h1>
-        <p class="subtitle">my taste in Love <3</p>
+        <p class="subtitle">my taste in Love &lt;3</p>
 
         <div class="video-container">
             <video id="memory-video" src="video.mp4" loop playsinline></video>
@@ -191,18 +206,27 @@ Welcome to the ultimate guide of a boy who carries summer in his smile and music
             
             From his soul-stirring high notes to his sweet, comforting presence, loving him is easily the most beautiful chapter of our lives.</p>
         
-    <div class="style-gallery">
+        <div class="style-gallery">
             <div class="style-item">
-                <img src="style1.png" alt="Style 1" class="style-image">
-                <div class="style-caption">crush</div> </div>
+                <div class="img-wrapper">
+                    <img src="style1.png" alt="Style 1" class="style-image">
+                </div>
+                <div class="style-caption">crush</div>
+            </div>
             
             <div class="style-item">
-                <img src="style2.png" alt="Style 2" class="style-image">
-                <div class="style-caption">idol</div> </div>
+                <div class="img-wrapper">
+                    <img src="style2.png" alt="Style 2" class="style-image">
+                </div>
+                <div class="style-caption">idol</div>
+            </div>
             
             <div class="style-item">
-                <img src="style3.png" alt="Style 3" class="style-image">
-                <div class="style-caption">singer</div> </div>
+                <div class="img-wrapper">
+                    <img src="style3.png" alt="Style 3" class="style-image">
+                </div>
+                <div class="style-caption">singer</div>
+            </div>
         </div>
         
     </div>
